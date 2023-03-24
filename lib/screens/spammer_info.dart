@@ -1,4 +1,4 @@
-import 'package:aegis/controllers/sms_controller.dart';
+import 'package:aegis/controllers/email_spammer_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,12 +12,23 @@ class SpammerInfoPage extends StatefulWidget {
 }
 
 class _SpammerInfoPageState extends State<SpammerInfoPage> {
-  SmsController smsController = Get.put(SmsController());
+  SpammerController spammerController = Get.put(SpammerController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF5F8FE),
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(
+          widget.title,
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
       ),
       body: Center(
         child: Padding(
@@ -40,17 +51,19 @@ class _SpammerInfoPageState extends State<SpammerInfoPage> {
                 ),
               ),
               SizedBox(height: MediaQuery.of(context).size.width * 0.1),
-              const Text(
-                '+91 1234567890',
-                style: TextStyle(
+              Text(
+                spammerController.emailSpammerInfoModel.emailId.isEmpty
+                    ? spammerController.smsSpammerInfoModel.sms
+                    : spammerController.emailSpammerInfoModel.emailId,
+                style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.w500,
                 ),
               ),
               SizedBox(height: MediaQuery.of(context).size.width * 0.04),
-              const Text(
-                '1234 SPAM REPORTS',
-                style: TextStyle(
+              Text(
+                '${spammerController.emailSpammerInfoModel.emailId.isEmpty ? spammerController.smsSpammerInfoModel.spamsReported : spammerController.emailSpammerInfoModel.spamsReported} SPAM REPORTS',
+                style: const TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
                   color: Colors.red,
