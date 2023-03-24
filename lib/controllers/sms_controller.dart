@@ -17,7 +17,7 @@ class SmsController extends GetxController {
 
   checkDetectedSMS() async {
     Map data = {
-      "phone_no": "+91${phoneNoController.text.trim()}",
+      "phone_no": phoneNoController.text.trim(),
       "content": smsContentController.text.trim(),
     };
 
