@@ -8,12 +8,10 @@ class SpammerController extends GetxController {
     emailId: '',
     spam: false,
     spamsReported: 0,
-    confidenceScore: 0,
   );
   SMSSpammerInfoModel smsSpammerInfoModel = SMSSpammerInfoModel(
-    sms: '',
+    phoneNo: '',
     spam: false,
     spamsReported: 0,
-    confidenceScore: 0,
   );
 }

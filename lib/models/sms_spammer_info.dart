@@ -12,29 +12,25 @@ String smsSpammerInfoModelToJson(SMSSpammerInfoModel data) =>
 
 class SMSSpammerInfoModel {
   SMSSpammerInfoModel({
-    required this.sms,
+    required this.phoneNo,
     required this.spam,
     required this.spamsReported,
-    required this.confidenceScore,
   });
 
-  String sms;
+  String phoneNo;
   bool spam;
   int spamsReported;
-  int confidenceScore;
 
   factory SMSSpammerInfoModel.fromJson(Map<String, dynamic> json) =>
       SMSSpammerInfoModel(
-        sms: json["sms"],
+        phoneNo: json["phone_no"],
         spam: json["spam"],
         spamsReported: json["spams_reported"],
-        confidenceScore: json["confidence_score"],
       );
 
   Map<String, dynamic> toJson() => {
-        "sms": sms,
+        "phone_no": phoneNo,
         "spam": spam,
         "spams_reported": spamsReported,
-        "confidence_score": confidenceScore,
       };
 }

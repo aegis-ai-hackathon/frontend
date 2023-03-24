@@ -37,23 +37,38 @@ class _SpammerInfoPageState extends State<SpammerInfoPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                padding:
-                    EdgeInsets.all(MediaQuery.of(context).size.width * 0.04),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(100),
-                  color: Colors.red.withOpacity(0.2),
-                ),
-                child: const Icon(
-                  Icons.warning_amber_outlined,
-                  size: 75,
-                  color: Colors.red,
-                ),
-              ),
+              spammerController.smsSpammerInfoModel.spam ||
+                      spammerController.emailSpammerInfoModel.spam
+                  ? Container(
+                      padding: EdgeInsets.all(
+                          MediaQuery.of(context).size.width * 0.04),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(100),
+                        color: Colors.red.withOpacity(0.2),
+                      ),
+                      child: const Icon(
+                        Icons.warning_amber_outlined,
+                        size: 75,
+                        color: Colors.red,
+                      ),
+                    )
+                  : Container(
+                      padding: EdgeInsets.all(
+                          MediaQuery.of(context).size.width * 0.04),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(100),
+                        color: Colors.green.withOpacity(0.2),
+                      ),
+                      child: const Icon(
+                        Icons.check_circle_outline,
+                        size: 75,
+                        color: Colors.green,
+                      ),
+                    ),
               SizedBox(height: MediaQuery.of(context).size.width * 0.1),
               Text(
                 spammerController.emailSpammerInfoModel.emailId.isEmpty
-                    ? spammerController.smsSpammerInfoModel.sms
+                    ? spammerController.smsSpammerInfoModel.phoneNo
                     : spammerController.emailSpammerInfoModel.emailId,
                 style: const TextStyle(
                   fontSize: 24,

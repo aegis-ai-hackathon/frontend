@@ -15,26 +15,22 @@ class EmailSpammerInfoModel {
     required this.emailId,
     required this.spam,
     required this.spamsReported,
-    required this.confidenceScore,
   });
 
   String emailId;
   bool spam;
   int spamsReported;
-  int confidenceScore;
 
   factory EmailSpammerInfoModel.fromJson(Map<String, dynamic> json) =>
       EmailSpammerInfoModel(
         emailId: json["email_id"],
         spam: json["spam"],
         spamsReported: json["spams_reported"],
-        confidenceScore: json["confidence_score"],
       );
 
   Map<String, dynamic> toJson() => {
         "email_id": emailId,
         "spam": spam,
         "spams_reported": spamsReported,
-        "confidence_score": confidenceScore,
       };
 }

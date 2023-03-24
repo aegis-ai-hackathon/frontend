@@ -4,9 +4,8 @@ import 'package:get/get.dart';
 
 class SpammerController extends GetxController {
   SMSSpammerInfoModel spammerInfoModel = SMSSpammerInfoModel(
-    sms: '',
+    phoneNo: '',
     spam: false,
     spamsReported: 0,
-    confidenceScore: 0,
   );
 }
