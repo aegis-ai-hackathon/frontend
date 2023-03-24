@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        fontFamily: "Nunito",
       ),
       home: const MyHomePage(title: 'Aegis AI - SMS Detection'),
       debugShowCheckedModeBanner: false,

@@ -10,7 +10,6 @@ class SmsController extends GetxController {
   checkDetectedSMS() {
     print(phoneNoController.text);
     print(smsContentController.text);
-    print(DateTime.now());
     print(isReportedSpam);
     Get.to(() => const SpammerInfoPage(title: 'Spam Detected by Aegis AI'));
   }
